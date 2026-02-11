@@ -109,7 +109,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Compressing ubuntu.img..."
-          zip -P $PASSWORD ubuntu.zip ubuntu.img -F
+          zip -P $PASSWORD ubuntu.zip ubuntu.img
           rm -rf ubuntu.img
           echo "Splitting into 1GB parts..."
           split -b 1024M ubuntu.zip ubuntu_part_
