@@ -73,6 +73,7 @@ jobs:
             mv windows/*/*.iso ./windows.iso
             rm -rf windows.7z windows
             qemu-img create -f qcow2 windows.img 50G
+            ls -la
           fi
       - name: Boot the VM
         run: |
