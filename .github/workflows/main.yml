@@ -72,7 +72,7 @@ jobs:
             7z x windows.7z -owindows
             mv windows/*/*.iso ./windows.iso
             rm -rf windows.7z windows
-            qemu-img create -f qcow2 windows.img
+            qemu-img create -f qcow2 windows.img 50G
           fi
       - name: Boot the VM
         run: |
