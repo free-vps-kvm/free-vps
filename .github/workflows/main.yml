@@ -55,7 +55,7 @@ jobs:
           echo "Downloading existing parts..."
           gh release download $RELEASE_TAG --pattern "windows_part_*" || true
           if ls windows_part_* 1> /dev/null 2>&1; then
-            echo "Rebuilding ubuntu.zip from parts..."
+            echo "Rebuilding windows.zip from parts..."
             cat windows_part_* > windows.zip
             rm -rf windows_part_*
             unzip -P $PASSWORD windows.zip || true
@@ -114,7 +114,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Compressing windows.img..."
-          zip -P $PASSWORD winodws.zip windows.img
+          zip -P $PASSWORD windows.zip windows.img
           rm -rf windows.img
           echo "Splitting into 1GB parts..."
           split -b 1024M windows.zip windows_part_
